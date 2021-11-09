@@ -1,6 +1,4 @@
-language: node_js
-node_js:
-  - 7
+language: generic
 
 services:
   - docker
@@ -9,4 +7,4 @@ before_install:
   - docker build -t andrewbalzer/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run andrewbalzer/docker-react npm run test -- --coverage
+  - docker run -e CI=true andrewbalzer/docker-react npm run test
